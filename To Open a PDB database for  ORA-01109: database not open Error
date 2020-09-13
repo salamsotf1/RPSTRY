@@ -29,7 +29,7 @@ Following commands 8 steps  to Alter database to Change as write mode.
 1. Shutdown a container database (CDB) and all pluggable databases (PDBs)
 
 sqlplus '/ as sysdba'
-SQL> show connection
+SQL>  SHOW CON_NAME
 NB Make sure you are on the root CDB$ROOT
 SQL> shutdown immediate
 
