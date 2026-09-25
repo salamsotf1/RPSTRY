@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AirCargo Test Control</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="test-dashboard.css">
+  <link rel="stylesheet" href="test-dashboard-interactions.css">
+</head>
+<body>
+  <main class="dashboard-shell">
+    <header class="dashboard-header">
+      <div>
+        <p class="eyebrow">AIR CARGO / QUALITY CONTROL</p>
+        <h1>Automation control<span>.</span></h1>
+        <p class="subtitle">Run the Playwright suite and watch every screen prove itself in real time.</p>
+      </div>
+      <button id="run-tests" class="run-button" type="button"><span class="play-icon">▶</span> Run all tests</button>
+    </header>
+
+    <section class="status-strip" aria-live="polite">
+      <span id="status-dot" class="status-dot idle"></span>
+      <strong id="run-status">Ready to run</strong>
+      <span id="last-run">No run started in this session</span>
+    </section>
+
+    <section class="metrics-grid" aria-label="Test summary">
+      <article class="metric-card"><span>Total test cases</span><strong id="total-count">0</strong><small>in the current run</small></article>
+      <article class="metric-card pass"><span>Passed</span><strong id="passed-count">0</strong><small>completed successfully</small></article>
+      <article class="metric-card fail"><span>Failed</span><strong id="failed-count">0</strong><small>need attention</small></article>
+      <article class="metric-card neutral"><span>Duration</span><strong id="duration-count">0s</strong><small>suite runtime</small></article>
+    </section>
+
+    <section class="screen-section">
+      <div class="section-heading"><div><p class="eyebrow">COVERAGE MAP</p><h2>Results by screen</h2></div><span class="mono-label">LIVE FEED</span></div>
+      <div id="screen-cards" class="screen-cards"></div>
+    </section>
+
+    <section class="activity-section">
+      <div class="section-heading"><div><p class="eyebrow">EXECUTION LOG</p><h2>Test case details</h2></div><span id="event-count" class="mono-label">0 EVENTS</span></div>
+      <div id="test-list" class="test-list"><div class="empty-state">Run the suite to see live test progress here.</div></div>
+    </section>
+
+    <section id="detail-panel" class="detail-section" hidden>
+      <div class="section-heading"><div><p class="eyebrow">SELECTED RESULT</p><h2>Test case detail</h2></div><button id="close-details" class="close-button" type="button">Close</button></div>
+      <div class="detail-table-wrap"><table class="detail-table"><tbody id="detail-table-body"></tbody></table></div>
+    </section>
+  </main>
+  <script src="test-dashboard.js"></script>
+</body>
+</html>

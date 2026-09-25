@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liftline Air Cargo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-mark"><span>↗</span><div>liftline<small>AIR CARGO</small></div></div>
+      <div class="side-label">Workspace</div>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a class="nav-item active" href="#booking"><span class="nav-icon">⌁</span>New booking</a>
+        <a class="nav-item" href="#shipments"><span class="nav-icon">▱</span>Shipments <b id="shipment-count">12</b></a>
+        <a class="nav-item" href="#quotes"><span class="nav-icon">◌</span>Quotes</a>
+        <a class="nav-item" href="#search-bookings"><span class="nav-icon">⌕</span>Search bookings</a>
+        <a class="nav-item" href="#awb"><span class="nav-icon">▤</span>Master AWB</a>
+        <a class="nav-item" href="#billing"><span class="nav-icon">＄</span>Billing</a>
+        <a class="nav-item" href="#analytics"><span class="nav-icon">▥</span>Analytics</a>
+      </nav>
+      <div class="side-label">Manage</div>
+      <nav class="primary-nav" aria-label="Management navigation">
+        <a class="nav-item" href="#contacts"><span class="nav-icon">◎</span>Contacts</a>
+        <a class="nav-item" href="#settings"><span class="nav-icon">⚙</span>Settings</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="status-pill"><span class="status-dot"></span>All systems operational</div>
+        <div class="user-card"><div class="avatar">AK</div><div><strong>Amara Kline</strong><span>Logistics lead</span></div><span class="more">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="booking">
+      <header class="topbar">
+        <div class="breadcrumb"><span>Workspace</span><i>/</i><strong>New booking</strong></div>
+        <div class="top-search-wrap">
+          <label class="global-search-box" aria-label="Global AWB search">
+            <span>⌕</span>
+            <input class="global-awb-search" type="search" placeholder="Global AWB search">
+          </label>
+          <button class="mini-go-btn global-awb-go" type="button">Go</button>
+        </div>
+        <div class="top-actions"><button class="icon-btn" aria-label="Notifications">♧<span class="notification-dot"></span></button><button class="help-btn">? <span>Help center</span></button></div>
+      </header>
+
+      <section class="page-heading">
+        <div><p class="eyebrow">AIR FREIGHT / CREATE SHIPMENT</p><h1>Book a new shipment<span class="accent">.</span></h1><p class="subheading">Build your route, add cargo details, and get an instant estimate.</p></div>
+        <div class="saved-note"><span class="save-icon">◷</span><div><span>Last saved</span><strong>just now</strong></div></div>
+      </section>
+
+      <div class="stepper" aria-label="Booking progress">
+        <div class="step active"><span>01</span><strong>Route & cargo</strong></div><div class="step-line"></div><div class="step"><span>02</span><strong>Services</strong></div><div class="step-line"></div><div class="step"><span>03</span><strong>Review</strong></div>
+      </div>
+
+      <div class="booking-grid">
+        <section class="form-panel">
+          <div class="panel-heading"><div><span class="section-number">01</span><h2>Route & cargo</h2></div><span class="required">* Required fields</span></div>
+          <label class="field"><span>AWB#</span><div class="input-wrap"><span class="field-icon">▤</span><input id="booking-awb-search" type="text" placeholder="Enter AWB number" aria-label="AWB number"></div></label>
+          <div class="mode-tabs" role="tablist"><button class="mode-tab selected" data-mode="one-way">One way</button><button class="mode-tab" data-mode="round-trip">Round trip</button><button class="mode-tab" data-mode="multi-leg">Multi-leg</button></div>
+          <div class="route-fields">
+            <label class="field"><span>From</span><div class="input-wrap"><span class="field-icon">⌖</span><input id="origin" value="Amsterdam" aria-label="Origin"><small id="origin-meta">AMS · Netherlands</small></div></label>
+            <button class="swap-btn" id="swap-route" aria-label="Swap origin and destination">⇄</button>
+            <label class="field"><span>To</span><div class="input-wrap"><span class="field-icon">⌖</span><input id="destination" value="Singapore" aria-label="Destination"><small id="destination-meta">SIN · Singapore</small></div></label>
+          </div>
+          <div class="route-line"><span class="route-pin"></span><div></div><span class="route-pin"></span></div>
+          <div class="two-fields">
+            <label class="field"><span>Departure date</span><div class="input-wrap"><span class="field-icon">□</span><input type="date" id="departure" value="2026-10-06"></div></label>
+            <label class="field"><span>Ready time <em>Optional</em></span><div class="input-wrap"><span class="field-icon">◷</span><input type="text" value="09:00" aria-label="Ready time"><small>Local airport time</small></div></label>
+          </div>
+          <div class="divider"></div>
+          <div class="cargo-heading"><div><h3>Cargo details</h3><p>Tell us what you’re moving so we can find the right capacity.</p></div><span class="cargo-tag">GENERAL CARGO</span></div>
+          <div class="cargo-fields">
+            <label class="field"><span>Pieces</span><div class="input-wrap"><input type="number" value="12" min="1" aria-label="Pieces"><small>units</small></div></label>
+            <label class="field"><span>Total weight</span><div class="input-wrap"><input type="number" value="840" min="1" aria-label="Total weight"><small>kg</small></div></label>
+            <label class="field"><span>Volume</span><div class="input-wrap"><input type="number" value="4.8" min="0.1" step="0.1" aria-label="Volume"><small>m³</small></div></label>
+          </div>
+          <label class="field"><span>What are you shipping?</span><div class="input-wrap"><span class="field-icon">⌁</span><input value="Consumer electronics & accessories" aria-label="Cargo description"></div></label>
+          <div class="cargo-options"><label class="check-option"><input type="checkbox"><span class="fake-check"></span>Temperature controlled</label><label class="check-option"><input type="checkbox"><span class="fake-check"></span>Dangerous goods</label><label class="check-option"><input type="checkbox"><span class="fake-check"></span>High value</label></div>
+          <button class="add-link" id="add-cargo">+ Add another cargo type</button>
+        </section>
+
+        <aside class="quote-panel">
+          <div class="quote-top"><span class="live-label"><span></span>LIVE ESTIMATE</span><button class="more-btn" aria-label="More options">•••</button></div>
+          <div class="route-visual"><div class="visual-airport"><span id="origin-code">AMS</span><small id="origin-city">Amsterdam</small></div><div class="flight-path"><span class="path-dot"></span><div class="plane">✈</div><span class="path-dot"></span></div><div class="visual-airport right"><span id="destination-code">SIN</span><small id="destination-city">Singapore</small></div></div>
+          <div class="quote-route"><strong id="quote-route-name">Amsterdam → Singapore</strong><span>Tue, 06 Oct · Direct</span></div>
+          <div class="quote-price"><span>Estimated total</span><strong id="total-price">$3,840<span>.00</span></strong><small>USD · all-in estimate</small></div>
+          <div class="price-breakdown"><div><span>Base freight</span><strong id="base-price">$3,360.00</strong></div><div><span>Fuel surcharge</span><strong>$420.00</strong></div><div><span>Security & handling</span><strong>$60.00</strong></div></div>
+          <div class="quote-divider"></div>
+          <div class="delivery-row"><div><span class="mini-icon">◷</span><span>Estimated delivery<strong>09 Oct 2026</strong></span></div><span class="days">3 days</span></div>
+          <button class="continue-btn" id="continue-btn">Create booking <span>→</span></button>
+          <p class="quote-footnote">Final price may change after cargo verification.</p>
+        </aside>
+      </div>
+    </main>
+
+    <section class="workspace-page" id="awb-page">
+      <header class="topbar"><div class="breadcrumb"><span>Workspace</span><i>/</i><strong>Master AWB capture</strong></div><div class="top-search-wrap"><label class="global-search-box" aria-label="Global AWB search"><span>⌕</span><input class="global-awb-search" type="search" placeholder="Global AWB search"></label><button class="mini-go-btn global-awb-go" type="button">Go</button></div><div class="top-actions"><button class="icon-btn" aria-label="Notifications">♧</button><button class="help-btn">? <span>Help center</span></button></div></header>
+      <div class="workspace-heading"><div><p class="eyebrow">DOCUMENT CONTROL / AIR WAYBILL</p><h1>Capture a Master AWB<span class="accent">.</span></h1><p class="subheading">Register the carrier document before your freight moves to manifest.</p></div><button class="header-action" id="awb-save">Save draft <span>↗</span></button></div>
+      <div class="workspace-layout">
+        <section class="form-panel awb-form">
+          <div class="panel-heading"><div><span class="section-number">01</span><h2>AWB details</h2></div><span class="required">* Required fields</span></div>
+          <div class="awb-grid"><label class="field"><span>Master AWB number *</span><div class="input-wrap"><span class="field-icon">▤</span><input id="awb-number" placeholder="e.g. 074-12345675"></div></label><label class="field"><span>Issuing carrier *</span><div class="input-wrap"><input id="awb-carrier" value="KLM Cargo"><small>Carrier</small></div></label><label class="field"><span>Issue date *</span><div class="input-wrap"><input id="awb-date" type="date" value="2026-09-24"></div></label><label class="field"><span>Flight number</span><div class="input-wrap"><input id="awb-flight" placeholder="e.g. KL 835"><small>Optional</small></div></label></div>
+          <div class="divider"></div>
+          <div class="cargo-heading"><div><h3>Parties & routing</h3><p>Use the exact details printed on the carrier document.</p></div><span class="cargo-tag">MASTER DOCUMENT</span></div>
+          <div class="awb-grid"><label class="field"><span>Shipper *</span><div class="input-wrap"><input id="awb-shipper" placeholder="Legal entity name"></div></label><label class="field"><span>Consignee *</span><div class="input-wrap"><input id="awb-consignee" placeholder="Legal entity name"></div></label><label class="field"><span>Origin airport *</span><div class="input-wrap"><input id="awb-origin" value="AMS · Amsterdam"></div></label><label class="field"><span>Destination airport *</span><div class="input-wrap"><input id="awb-destination" value="SIN · Singapore"></div></label></div>
+          <div class="divider"></div><div class="upload-row"><div class="upload-icon">↥</div><div><strong>Attach carrier document</strong><span>PDF or image up to 10 MB</span></div><button class="secondary-btn" id="awb-upload">Choose file</button></div>
+          <button class="primary-wide" id="awb-submit">Save Master AWB <span>→</span></button>
+        </section>
+        <aside class="status-card"><div class="status-card-head"><span class="live-label"><span></span>CAPTURE CHECKLIST</span><span class="draft-badge">DRAFT</span></div><div class="check-row"><span class="check-circle done">✓</span><div><strong>Shipment selected</strong><small>LL-544417 · Amsterdam → Singapore</small></div></div><div class="check-row"><span class="check-circle">2</span><div><strong>AWB details</strong><small>Awaiting carrier document</small></div></div><div class="check-row"><span class="check-circle">3</span><div><strong>Validate & manifest</strong><small>Available after save</small></div></div><div class="status-note"><strong>Why capture this?</strong><p>Master AWB data keeps customs, tracking, and billing aligned across the shipment.</p></div></aside>
+      </div>
+    </section>
+
+    <section class="workspace-page" id="billing-page">
+      <header class="topbar"><div class="breadcrumb"><span>Workspace</span><i>/</i><strong>Billing</strong></div><div class="top-search-wrap"><label class="global-search-box" aria-label="Global AWB search"><span>⌕</span><input class="global-awb-search" type="search" placeholder="Global AWB search"></label><button class="mini-go-btn global-awb-go" type="button">Go</button></div><div class="top-actions"><button class="icon-btn" aria-label="Notifications">♧</button><button class="help-btn">? <span>Help center</span></button></div></header>
+      <div class="workspace-heading"><div><p class="eyebrow">FINANCE / RECEIVABLES</p><h1>Billing overview<span class="accent">.</span></h1><p class="subheading">Keep invoices, deposits, and shipment charges moving together.</p></div><button class="header-action" id="new-invoice">New invoice <span>+</span></button></div>
+      <div class="metric-row"><div class="metric-card"><span>Outstanding</span><strong>$18,420<span>.00</span></strong><small>Across 4 invoices</small></div><div class="metric-card"><span>Paid this month</span><strong>$42,880<span>.00</span></strong><small class="positive">↑ 12.4% vs last month</small></div><div class="metric-card"><span>Overdue</span><strong>$3,240<span>.00</span></strong><small class="negative">2 invoices need attention</small></div></div>
+      <section class="billing-panel saved-bookings-panel">
+        <div class="billing-toolbar">
+          <div>
+            <h2>Saved bookings</h2>
+            <p>Review every shipment saved in this browser.</p>
+          </div>
+          <button class="clear-bookings-btn" id="clear-all-bookings" type="button">Clear all</button>
+        </div>
+        <input id="booking-search" type="search" class="legacy-search-input" aria-label="Search saved bookings" placeholder="Search bookings" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;">
+        <div id="saved-bookings-list" class="saved-bookings-list"></div>
+      </section>
+      <section class="billing-panel"><div class="billing-toolbar"><div><h2>Recent invoices</h2><p>Monitor customer billing activity tied to active shipments.</p></div><div class="filter-pills"><button class="filter-pill active">All invoices</button><button class="filter-pill">Open</button><button class="filter-pill">Paid</button></div></div><div class="invoice-table"><div class="invoice-row invoice-head"><span>Invoice</span><span>Customer</span><span>Shipment</span><span>Due date</span><span>Amount</span><span>Status</span></div><div class="invoice-row"><strong>INV-2048</strong><span>Northstar Devices</span><span class="mono-text">LL-544417</span><span>02 Oct 2026</span><strong>$5,484.00</strong><span class="invoice-status open">Open</span></div><div class="invoice-row"><strong>INV-2047</strong><span>Meridian Retail</span><span class="mono-text">LL-544102</span><span>28 Sep 2026</span><strong>$8,920.00</strong><span class="invoice-status overdue">Overdue</span></div><div class="invoice-row"><strong>INV-2046</strong><span>Alpine Medical</span><span class="mono-text">LL-543988</span><span>15 Sep 2026</span><strong>$4,016.00</strong><span class="invoice-status paid">Paid</span></div><div class="invoice-row"><strong>INV-2045</strong><span>Field & Form Co.</span><span class="mono-text">LL-543821</span><span>10 Sep 2026</span><strong>$6,240.00</strong><span class="invoice-status paid">Paid</span></div></div></section>
+    </section>
+
+    <section class="workspace-page" id="search-bookings-page">
+      <header class="topbar"><div class="breadcrumb"><span>Workspace</span><i>/</i><strong>Search bookings</strong></div><div class="top-search-wrap"><label class="global-search-box" aria-label="Global AWB search"><span>⌕</span><input class="global-awb-search" type="search" placeholder="Global AWB search"></label><button class="mini-go-btn global-awb-go" type="button">Go</button></div><div class="top-actions"><button class="icon-btn" aria-label="Notifications">♧</button><button class="help-btn">? <span>Help center</span></button></div></header>
+      <div class="workspace-heading"><div><p class="eyebrow">OPERATIONS / SEARCH</p><h1>Search bookings<span class="accent">.</span></h1><p class="subheading">Browse all booked AWBs with key shipment details and paginate through the full history.</p></div></div>
+      <section class="billing-panel search-bookings-panel">
+        <div class="search-bookings-table-wrap">
+          <table class="search-bookings-table">
+            <thead>
+              <tr>
+                <th>AWB</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Pieces</th>
+                <th>Weight</th>
+                <th>Volume</th>
+              </tr>
+            </thead>
+            <tbody id="search-bookings-body"></tbody>
+          </table>
+        </div>
+        <div class="pagination-row" id="search-bookings-pagination"></div>
+      </section>
+    </section>
+  </div>
+  <div class="booking-modal" id="booking-modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="confirmation-title">
+      <button class="modal-close" id="modal-close" aria-label="Close booking confirmation">×</button>
+      <div class="confirmation-icon">✓</div>
+      <p class="eyebrow">BOOKING CREATED</p>
+      <h2 id="confirmation-title">Your shipment is booked.</h2>
+      <p class="modal-copy">We’ve reserved capacity for your air freight shipment.</p>
+      <div class="booking-reference"><span>Booking reference</span><strong id="booking-reference">LL-000000</strong></div>
+      <div class="confirmation-details"><div><span>Route</span><strong id="confirmation-route">Amsterdam → Singapore</strong></div><div><span>Cargo</span><strong id="confirmation-cargo">12 pieces · 840 kg</strong></div><div><span>Estimated total</span><strong id="confirmation-total">$3,840.00</strong></div></div>
+      <button class="modal-primary" id="new-booking">Create another booking <span>+</span></button>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status">Route updated</div>
+  <script src="app.js"></script>
+</body>
+</html>
