@@ -1,9 +1,52 @@
 const state = { tests: new Map(), total: 0, startedAt: 0, events: 0 };
 const screenNames = ['New Booking', 'Billing / Saved Bookings', 'Global AWB / Master AWB'];
 const runButton = document.querySelector('#run-tests');
+const assistantForm = document.querySelector('#assistant-form');
+const assistantInput = document.querySelector('#assistant-input');
+const assistantChat = document.querySelector('#assistant-chat');
 const eventSource = new EventSource('/api/test-events');
 
 function $(selector) { return document.querySelector(selector); }
+
+function addChatMessage(role, text) {
+  if (!assistantChat) return;
+  const message = document.createElement('div');
+  message.className = `chat-message ${role}`;
+  message.textContent = text;
+  assistantChat.appendChild(message);
+  assistantChat.scrollTop = assistantChat.scrollHeight;
+}
+
+async function askAssistant(question) {
+  const text = question.trim();
+  if (!text || !assistantInput) return;
+
+  addChatMessage('user', text);
+  assistantInput.value = '';
+  assistantInput.disabled = true;
+
+  try {
+    const response = await fetch('/api/mcp/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: text })
+    });
+    const result = await response.json();
+    const answer = result.answer || 'I could not answer that question from the Lift Aircargo screen context.';
+    addChatMessage('bot', answer);
+  } catch (error) {
+    console.error(error);
+    addChatMessage('bot', 'The MCP assistant could not reach the Lift Aircargo webpage context. Please try again.');
+  } finally {
+    assistantInput.disabled = false;
+    assistantInput.focus();
+  }
+}
+
+assistantForm?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  askAssistant(assistantInput.value);
+});
 
 function resetRun() {
   state.tests.clear();

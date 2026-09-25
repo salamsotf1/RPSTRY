@@ -44,6 +44,19 @@
       <div id="test-list" class="test-list"><div class="empty-state">Run the suite to see live test progress here.</div></div>
     </section>
 
+    <section class="assistant-section">
+      <div class="section-heading"><div><p class="eyebrow">AIR CARGO / AI ASSISTANT</p><h2>Shipment booking assistant</h2></div><span class="mono-label">MCP READY</span></div>
+      <div class="assistant-panel">
+        <div id="assistant-chat" class="assistant-chat" aria-live="polite">
+          <div class="chat-message bot">I can help answer questions about the Lift Aircargo booking screen, AWB flow, cargo details, and shipment workflow.</div>
+        </div>
+        <form id="assistant-form" class="assistant-form">
+          <input id="assistant-input" type="text" placeholder="Ask about booking flow, AWB, cargo, or route details..." aria-label="Ask the shipment assistant" />
+          <button type="submit" class="run-button small">Ask</button>
+        </form>
+      </div>
+    </section>
+
     <section id="detail-panel" class="detail-section" hidden>
       <div class="section-heading"><div><p class="eyebrow">SELECTED RESULT</p><h2>Test case detail</h2></div><button id="close-details" class="close-button" type="button">Close</button></div>
       <div class="detail-table-wrap"><table class="detail-table"><tbody id="detail-table-body"></tbody></table></div>
