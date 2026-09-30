@@ -1,0 +1,11 @@
+awb_number,booked_weight,observed_weight,has_handwritten_override,override_type,label
+0981234567,1200,1400,1,overwrite,1
+2349876543,800,820,1,strikeout,1
+7786654321,1400,1500,1,overwrite,1
+1156789901,2200,2200,0,none,0
+4456712345,600,610,0,none,0
+3321098876,950,980,0,none,0
+2211456789,700,760,1,annotation,1
+9988776655,1300,1325,0,none,0
+5432134567,1100,1250,1,overwrite,1
+6598743210,900,880,1,strikeout,1
